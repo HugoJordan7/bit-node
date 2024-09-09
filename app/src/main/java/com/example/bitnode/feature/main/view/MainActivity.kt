@@ -7,8 +7,10 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.FloatingActionButton
@@ -41,10 +43,18 @@ class MainActivity : ComponentActivity() {
         setContent {
             BitNodeTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
+                Column(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
                 ) {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_bitcoin),
+                        contentDescription = "",
+                        tint = Color(0xFFB4A414),
+                        modifier = Modifier
+                            .align(Alignment.CenterHorizontally)
+                            .size(160.dp)
+                            .padding(15.dp)
+                    )
                     Nodes()
                 }
             }
