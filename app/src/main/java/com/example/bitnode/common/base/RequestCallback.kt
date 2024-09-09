@@ -1,4 +1,4 @@
-package com.example.bitnode.base
+package com.example.bitnode.common.base
 
 interface RequestCallback<T> {
 

@@ -1,8 +1,9 @@
 package com.example.bitnode.feature.main.presentation
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.bitnode.base.RequestCallback
+import com.example.bitnode.common.base.RequestCallback
 import com.example.bitnode.feature.main.data.NodeRepository
 import com.example.bitnode.model.Node
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -27,11 +28,12 @@ class MainViewModel(private val repository: NodeRepository): ViewModel() {
         viewModelScope.launch {
             _isLoading.emit(true)
 
-            repository.findNodes(object : RequestCallback<List<Node>>{
+            repository.findNodes(object : RequestCallback<List<Node>> {
 
                 override fun onSuccess(data: List<Node>) {
                     viewModelScope.launch {
                         _nodes.emit(data)
+                        _isFailure.emit(false)
                     }
                 }
 
