@@ -13,6 +13,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import com.example.bitnode.common.extension.satsToBitcoin
+import com.example.bitnode.common.extension.unixTimeToDate
 import com.example.bitnode.model.Node
 
 @Composable
@@ -28,9 +30,9 @@ fun NodeItem(node: Node) {
         CustomText(text = "Chave Pública: " + node.publicKey)
         CustomText(text = "Pseudônimo: " + node.alias)
         CustomText(text = "Canais: " + node.channels)
-        CustomText(text = "Capacidade: " + satsToBitcoin(node.capacity) + " BTC")
-        CustomText(text = "Visto primeiro em: " + node.firstSeen)
-        CustomText(text = "Atualizado em: " + node.updatedAt)
+        CustomText(text = "Capacidade: " + node.capacity.satsToBitcoin() + " BTC")
+        CustomText(text = "Visto primeiro em: " + node.firstSeen.unixTimeToDate() )
+        CustomText(text = "Atualizado em: " + node.updatedAt.unixTimeToDate() )
         node.city?.let { 
             CustomText(text = "Cidade: " + it.ptBR)
         }
@@ -50,8 +52,4 @@ fun CustomText(text: String){
         style = MaterialTheme.typography.bodyMedium,
         modifier = Modifier.padding()
     )
-}
-
-private fun satsToBitcoin(sats: Long): Double{
-    return sats/100000000.0
 }
