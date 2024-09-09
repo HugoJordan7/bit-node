@@ -10,7 +10,7 @@ data class Node(
     val firstSeen: Long,
     val updatedAt: Long,
     val city: City?,
-    val country: Country,
+    val country: Country?,
     @SerializedName("iso_code") val isoCode: String,
     val subdivision: String?
 )
