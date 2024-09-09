@@ -4,6 +4,7 @@ import android.app.Application
 import com.example.bitnode.di.dataSourceModule
 import com.example.bitnode.di.repositoryModule
 import com.example.bitnode.di.serviceModule
+import com.example.bitnode.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
@@ -22,6 +23,7 @@ class App : Application() {
                     serviceModule,
                     dataSourceModule,
                     repositoryModule,
+                    viewModelModule
                 )
             )
         }

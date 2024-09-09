@@ -11,6 +11,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.bitnode.feature.main.presentation.MainViewModel
 import com.example.bitnode.ui.theme.BitNodeTheme
 
 class MainActivity : ComponentActivity() {
@@ -32,7 +33,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Nodes(){
-
+    val viewModel: MainViewModel
 }
 
 @Preview(showBackground = true)
