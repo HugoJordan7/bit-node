@@ -27,7 +27,7 @@ class MainViewModel(private val repository: NodeRepository): ViewModel() {
     fun findNodes(){
         viewModelScope.launch {
             _isLoading.emit(true)
-
+            _nodes.emit(emptyList())
             repository.findNodes(object : RequestCallback<List<Node>> {
 
                 override fun onSuccess(data: List<Node>) {

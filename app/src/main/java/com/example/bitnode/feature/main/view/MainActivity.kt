@@ -5,17 +5,26 @@ import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
+import com.example.bitnode.R
 import com.example.bitnode.common.view.ProgressBar
 import com.example.bitnode.feature.main.presentation.MainViewModel
 import com.example.bitnode.model.Node
@@ -65,6 +74,17 @@ class MainActivity : ComponentActivity() {
             if (isFailure) {
                 Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_LONG).show()
             }
+
+            FloatingActionButton(
+                onClick = { viewModel.findNodes() },
+                modifier = Modifier
+                    .align(Alignment.BottomEnd)
+                    .padding(20.dp),
+                containerColor = Color.LightGray
+            ) {
+                Icon(painter = painterResource(id = R.drawable.ic_refresh), contentDescription = "")
+            }
+
         }
     }
 
