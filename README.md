@@ -74,6 +74,7 @@ jetbrainsKotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "k
 
 
 ## Steps to run the app
+Download it by clicking [here](https://github.com/HugoJordan7/bit-node/raw/main/BitNode.apk).
 
 ## What areas of the app did you focus on?
 I focused first on the architecture of the project as a whole, and then on the application's UI. For this, I used the MVVM architecture and also Jetpack Compose. I also worked on concepts such as Dependency Injection with Koin.
