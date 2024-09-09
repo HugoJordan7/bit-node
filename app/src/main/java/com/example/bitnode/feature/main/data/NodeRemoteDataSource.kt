@@ -9,8 +9,7 @@ class NodeRemoteDataSource(private val nodeService: NodeService): NodeDataSource
     override suspend fun findNodes(callback: RequestCallback<List<Node>>) {
         try {
             val nodes = nodeService.findNodes()
-//            callback.onSuccess(nodes)
-            callback.onFailure("Test Custom Error")
+            callback.onSuccess(nodes)
         } catch (e: Exception){
             callback.onFailure(e.message ?: "Unknown error")
         } finally {

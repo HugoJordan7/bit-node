@@ -51,11 +51,11 @@ class MainActivity : ComponentActivity() {
             val nodes: List<Node> = viewModel.nodes.collectAsState().value
 
             if (nodes.isNotEmpty()) {
-//            LazyColumn {
-//                items(nodes){
-//
-//                }
-//            }
+                LazyColumn {
+                    items(nodes){ node ->
+                        NodeItem(node)
+                    }
+                }
             }
 
             if (isLoading) {
@@ -65,14 +65,6 @@ class MainActivity : ComponentActivity() {
             if (isFailure) {
                 Toast.makeText(this@MainActivity, errorMessage, Toast.LENGTH_LONG).show()
             }
-        }
-    }
-
-    @Preview(showBackground = true)
-    @Composable
-    fun GreetingPreview() {
-        BitNodeTheme {
-
         }
     }
 
